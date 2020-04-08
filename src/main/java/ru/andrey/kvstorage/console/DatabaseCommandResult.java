@@ -15,4 +15,12 @@ public interface DatabaseCommandResult {
     enum DatabaseCommandStatus {
         SUCCESS, FAILED
     }
+
+    static DatabaseCommandResult success(String result) {
+        return new DatabaseCommandResultClass(result, DatabaseCommandStatus.SUCCESS, null);
+    }
+
+    static DatabaseCommandResult error(String message) {
+        return new DatabaseCommandResultClass(null, DatabaseCommandStatus.FAILED, message);
+    }
 }
